@@ -9,11 +9,32 @@
 /* Begin PBXBuildFile section */
 		3F2BFF782A978B250065429E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF772A978B250065429E /* AppDelegate.m */; };
 		3F2BFF7B2A978B250065429E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF7A2A978B250065429E /* SceneDelegate.m */; };
-		3F2BFF7E2A978B250065429E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF7D2A978B250065429E /* ViewController.m */; };
-		3F2BFF812A978B250065429E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BFF7F2A978B250065429E /* Main.storyboard */; };
 		3F2BFF832A978B260065429E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BFF822A978B260065429E /* Assets.xcassets */; };
 		3F2BFF862A978B260065429E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BFF842A978B260065429E /* LaunchScreen.storyboard */; };
 		3F2BFF892A978B260065429E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF882A978B260065429E /* main.m */; };
+		3F2BFF912A978B790065429E /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF902A978B790065429E /* CanvasViewController.m */; };
+		3F2BFF942A978B8B0065429E /* PaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF932A978B8B0065429E /* PaletteViewController.m */; };
+		3F2BFF972A978B980065429E /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF962A978B980065429E /* ThumbnailViewController.m */; };
+		3F2BFF9C2A978C140065429E /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF9B2A978C140065429E /* Vertex.m */; };
+		3F2BFF9F2A978C1D0065429E /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF9E2A978C1D0065429E /* Stroke.m */; };
+		3F2BFFA22A978C240065429E /* Dot.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFA12A978C240065429E /* Dot.m */; };
+		3F2BFFA62A97A41B0065429E /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFA52A97A41B0065429E /* CanvasView.m */; };
+		3F2BFFA92A97A42F0065429E /* PaperCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFA82A97A42F0065429E /* PaperCanvasView.m */; };
+		3F2BFFAC2A97A4440065429E /* ClothCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFAB2A97A4440065429E /* ClothCanvasView.m */; };
+		3F2BFFB02A97A4CE0065429E /* CanvasViewGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFAF2A97A4CE0065429E /* CanvasViewGenerator.m */; };
+		3F2BFFB32A97A52C0065429E /* PaperCanvasViewGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFB22A97A52C0065429E /* PaperCanvasViewGenerator.m */; };
+		3F2BFFB62A97A54F0065429E /* ClothCanvasViewGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFB52A97A54F0065429E /* ClothCanvasViewGenerator.m */; };
+		3F2BFFBA2A9996D30065429E /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFB92A9996D30065429E /* Command.m */; };
+		3F2BFFBD2A9996F50065429E /* SetStrokeColorCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFBC2A9996F50065429E /* SetStrokeColorCommand.m */; };
+		3F2BFFC02A9997FF0065429E /* CoordinatingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFBF2A9997FF0065429E /* CoordinatingController.m */; };
+		3F2BFFC42A999D3E0065429E /* CommandSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFC32A999D3E0065429E /* CommandSlider.m */; };
+		3F2BFFC82A99A6C50065429E /* ScribbleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFC72A99A6C50065429E /* ScribbleManager.m */; };
+		3F2BFFCB2A99ACAA0065429E /* Scribble.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFCA2A99ACAA0065429E /* Scribble.m */; };
+		3F2BFFCE2A99C79C0065429E /* MarkEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFCD2A99C79C0065429E /* MarkEnumerator.m */; };
+		3F2BFFD32A99C83B0065429E /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFD22A99C83B0065429E /* NSMutableArray+Stack.m */; };
+		3F2BFFD72A99CE320065429E /* MarkRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFFD62A99CE320065429E /* MarkRender.m */; };
+		3F4C1AFA2A99EBAF006C62D4 /* ScribbleMemento.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C1AF92A99EBAF006C62D4 /* ScribbleMemento.m */; };
+		3F4C1B562A99F1E7006C62D4 /* NSFileManager+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C1B552A99F1E7006C62D4 /* NSFileManager+Path.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +43,58 @@
 		3F2BFF772A978B250065429E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F2BFF792A978B250065429E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		3F2BFF7A2A978B250065429E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		3F2BFF7C2A978B250065429E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3F2BFF7D2A978B250065429E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3F2BFF802A978B250065429E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F2BFF822A978B260065429E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F2BFF852A978B260065429E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F2BFF872A978B260065429E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F2BFF882A978B260065429E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3F2BFF8F2A978B790065429E /* CanvasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		3F2BFF902A978B790065429E /* CanvasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		3F2BFF922A978B8B0065429E /* PaletteViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaletteViewController.h; sourceTree = "<group>"; };
+		3F2BFF932A978B8B0065429E /* PaletteViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaletteViewController.m; sourceTree = "<group>"; };
+		3F2BFF952A978B980065429E /* ThumbnailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
+		3F2BFF962A978B980065429E /* ThumbnailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
+		3F2BFF992A978BDE0065429E /* Mark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mark.h; sourceTree = "<group>"; };
+		3F2BFF9A2A978C140065429E /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		3F2BFF9B2A978C140065429E /* Vertex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Vertex.m; sourceTree = "<group>"; };
+		3F2BFF9D2A978C1D0065429E /* Stroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stroke.h; sourceTree = "<group>"; };
+		3F2BFF9E2A978C1D0065429E /* Stroke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
+		3F2BFFA02A978C240065429E /* Dot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dot.h; sourceTree = "<group>"; };
+		3F2BFFA12A978C240065429E /* Dot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Dot.m; sourceTree = "<group>"; };
+		3F2BFFA42A97A41B0065429E /* CanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		3F2BFFA52A97A41B0065429E /* CanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		3F2BFFA72A97A42F0065429E /* PaperCanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaperCanvasView.h; sourceTree = "<group>"; };
+		3F2BFFA82A97A42F0065429E /* PaperCanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaperCanvasView.m; sourceTree = "<group>"; };
+		3F2BFFAA2A97A4440065429E /* ClothCanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClothCanvasView.h; sourceTree = "<group>"; };
+		3F2BFFAB2A97A4440065429E /* ClothCanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClothCanvasView.m; sourceTree = "<group>"; };
+		3F2BFFAE2A97A4CE0065429E /* CanvasViewGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasViewGenerator.h; sourceTree = "<group>"; };
+		3F2BFFAF2A97A4CE0065429E /* CanvasViewGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasViewGenerator.m; sourceTree = "<group>"; };
+		3F2BFFB12A97A52C0065429E /* PaperCanvasViewGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaperCanvasViewGenerator.h; sourceTree = "<group>"; };
+		3F2BFFB22A97A52C0065429E /* PaperCanvasViewGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaperCanvasViewGenerator.m; sourceTree = "<group>"; };
+		3F2BFFB42A97A54F0065429E /* ClothCanvasViewGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClothCanvasViewGenerator.h; sourceTree = "<group>"; };
+		3F2BFFB52A97A54F0065429E /* ClothCanvasViewGenerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClothCanvasViewGenerator.m; sourceTree = "<group>"; };
+		3F2BFFB82A9996D30065429E /* Command.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		3F2BFFB92A9996D30065429E /* Command.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
+		3F2BFFBB2A9996F50065429E /* SetStrokeColorCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetStrokeColorCommand.h; sourceTree = "<group>"; };
+		3F2BFFBC2A9996F50065429E /* SetStrokeColorCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetStrokeColorCommand.m; sourceTree = "<group>"; };
+		3F2BFFBE2A9997FF0065429E /* CoordinatingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoordinatingController.h; sourceTree = "<group>"; };
+		3F2BFFBF2A9997FF0065429E /* CoordinatingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoordinatingController.m; sourceTree = "<group>"; };
+		3F2BFFC22A999D3E0065429E /* CommandSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandSlider.h; sourceTree = "<group>"; };
+		3F2BFFC32A999D3E0065429E /* CommandSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandSlider.m; sourceTree = "<group>"; };
+		3F2BFFC62A99A6C50065429E /* ScribbleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScribbleManager.h; sourceTree = "<group>"; };
+		3F2BFFC72A99A6C50065429E /* ScribbleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScribbleManager.m; sourceTree = "<group>"; };
+		3F2BFFC92A99ACAA0065429E /* Scribble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scribble.h; sourceTree = "<group>"; };
+		3F2BFFCA2A99ACAA0065429E /* Scribble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scribble.m; sourceTree = "<group>"; };
+		3F2BFFCC2A99C79C0065429E /* MarkEnumerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkEnumerator.h; sourceTree = "<group>"; };
+		3F2BFFCD2A99C79C0065429E /* MarkEnumerator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkEnumerator.m; sourceTree = "<group>"; };
+		3F2BFFD12A99C83B0065429E /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
+		3F2BFFD22A99C83B0065429E /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
+		3F2BFFD42A99CDD30065429E /* MarkVisitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkVisitor.h; sourceTree = "<group>"; };
+		3F2BFFD52A99CE320065429E /* MarkRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkRender.h; sourceTree = "<group>"; };
+		3F2BFFD62A99CE320065429E /* MarkRender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkRender.m; sourceTree = "<group>"; };
+		3F4C1AF82A99EBAF006C62D4 /* ScribbleMemento.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScribbleMemento.h; sourceTree = "<group>"; };
+		3F4C1AF92A99EBAF006C62D4 /* ScribbleMemento.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScribbleMemento.m; sourceTree = "<group>"; };
+		3F4C1B542A99F1E7006C62D4 /* NSFileManager+Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Path.h"; sourceTree = "<group>"; };
+		3F4C1B552A99F1E7006C62D4 /* NSFileManager+Path.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Path.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,17 +127,126 @@
 		3F2BFF752A978B250065429E /* TouchPainter */ = {
 			isa = PBXGroup;
 			children = (
+				3F4C1AF72A99EA39006C62D4 /* TouchPainter */,
+				3F2BFFCF2A99C80F0065429E /* MMFoundation */,
+				3F2BFFC52A99A6A90065429E /* Controller */,
+				3F2BFFA32A97A40A0065429E /* View */,
+				3F2BFF982A978BBF0065429E /* Model */,
+				3F2BFF872A978B260065429E /* Info.plist */,
+			);
+			path = TouchPainter;
+			sourceTree = "<group>";
+		};
+		3F2BFF982A978BBF0065429E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFB72A9996B70065429E /* Mark */,
+				3F2BFFB82A9996D30065429E /* Command.h */,
+				3F2BFFB92A9996D30065429E /* Command.m */,
+				3F2BFFBB2A9996F50065429E /* SetStrokeColorCommand.h */,
+				3F2BFFBC2A9996F50065429E /* SetStrokeColorCommand.m */,
+				3F2BFFC62A99A6C50065429E /* ScribbleManager.h */,
+				3F2BFFC72A99A6C50065429E /* ScribbleManager.m */,
+				3F2BFFC92A99ACAA0065429E /* Scribble.h */,
+				3F2BFFCA2A99ACAA0065429E /* Scribble.m */,
+				3F4C1AF82A99EBAF006C62D4 /* ScribbleMemento.h */,
+				3F4C1AF92A99EBAF006C62D4 /* ScribbleMemento.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F2BFFA32A97A40A0065429E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFC12A999D280065429E /* Canvas */,
+				3F2BFFC22A999D3E0065429E /* CommandSlider.h */,
+				3F2BFFC32A999D3E0065429E /* CommandSlider.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F2BFFAD2A97A4BD0065429E /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFAE2A97A4CE0065429E /* CanvasViewGenerator.h */,
+				3F2BFFAF2A97A4CE0065429E /* CanvasViewGenerator.m */,
+				3F2BFFB12A97A52C0065429E /* PaperCanvasViewGenerator.h */,
+				3F2BFFB22A97A52C0065429E /* PaperCanvasViewGenerator.m */,
+				3F2BFFB42A97A54F0065429E /* ClothCanvasViewGenerator.h */,
+				3F2BFFB52A97A54F0065429E /* ClothCanvasViewGenerator.m */,
+			);
+			path = Generator;
+			sourceTree = "<group>";
+		};
+		3F2BFFB72A9996B70065429E /* Mark */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFF992A978BDE0065429E /* Mark.h */,
+				3F2BFF9A2A978C140065429E /* Vertex.h */,
+				3F2BFF9B2A978C140065429E /* Vertex.m */,
+				3F2BFF9D2A978C1D0065429E /* Stroke.h */,
+				3F2BFF9E2A978C1D0065429E /* Stroke.m */,
+				3F2BFFA02A978C240065429E /* Dot.h */,
+				3F2BFFA12A978C240065429E /* Dot.m */,
+				3F2BFFCC2A99C79C0065429E /* MarkEnumerator.h */,
+				3F2BFFCD2A99C79C0065429E /* MarkEnumerator.m */,
+				3F2BFFD42A99CDD30065429E /* MarkVisitor.h */,
+				3F2BFFD52A99CE320065429E /* MarkRender.h */,
+				3F2BFFD62A99CE320065429E /* MarkRender.m */,
+			);
+			path = Mark;
+			sourceTree = "<group>";
+		};
+		3F2BFFC12A999D280065429E /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFAD2A97A4BD0065429E /* Generator */,
+				3F2BFFA42A97A41B0065429E /* CanvasView.h */,
+				3F2BFFA52A97A41B0065429E /* CanvasView.m */,
+				3F2BFFA72A97A42F0065429E /* PaperCanvasView.h */,
+				3F2BFFA82A97A42F0065429E /* PaperCanvasView.m */,
+				3F2BFFAA2A97A4440065429E /* ClothCanvasView.h */,
+				3F2BFFAB2A97A4440065429E /* ClothCanvasView.m */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		3F2BFFC52A99A6A90065429E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFF8F2A978B790065429E /* CanvasViewController.h */,
+				3F2BFF902A978B790065429E /* CanvasViewController.m */,
+				3F2BFF922A978B8B0065429E /* PaletteViewController.h */,
+				3F2BFF932A978B8B0065429E /* PaletteViewController.m */,
+				3F2BFF952A978B980065429E /* ThumbnailViewController.h */,
+				3F2BFF962A978B980065429E /* ThumbnailViewController.m */,
+				3F2BFFBE2A9997FF0065429E /* CoordinatingController.h */,
+				3F2BFFBF2A9997FF0065429E /* CoordinatingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3F2BFFCF2A99C80F0065429E /* MMFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFD12A99C83B0065429E /* NSMutableArray+Stack.h */,
+				3F2BFFD22A99C83B0065429E /* NSMutableArray+Stack.m */,
+				3F4C1B542A99F1E7006C62D4 /* NSFileManager+Path.h */,
+				3F4C1B552A99F1E7006C62D4 /* NSFileManager+Path.m */,
+			);
+			path = MMFoundation;
+			sourceTree = "<group>";
+		};
+		3F4C1AF72A99EA39006C62D4 /* TouchPainter */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFF882A978B260065429E /* main.m */,
 				3F2BFF762A978B250065429E /* AppDelegate.h */,
 				3F2BFF772A978B250065429E /* AppDelegate.m */,
 				3F2BFF792A978B250065429E /* SceneDelegate.h */,
 				3F2BFF7A2A978B250065429E /* SceneDelegate.m */,
-				3F2BFF7C2A978B250065429E /* ViewController.h */,
-				3F2BFF7D2A978B250065429E /* ViewController.m */,
-				3F2BFF7F2A978B250065429E /* Main.storyboard */,
-				3F2BFF822A978B260065429E /* Assets.xcassets */,
 				3F2BFF842A978B260065429E /* LaunchScreen.storyboard */,
-				3F2BFF872A978B260065429E /* Info.plist */,
-				3F2BFF882A978B260065429E /* main.m */,
+				3F2BFF822A978B260065429E /* Assets.xcassets */,
 			);
 			path = TouchPainter;
 			sourceTree = "<group>";
@@ -135,7 +310,6 @@
 			files = (
 				3F2BFF862A978B260065429E /* LaunchScreen.storyboard in Resources */,
 				3F2BFF832A978B260065429E /* Assets.xcassets in Resources */,
-				3F2BFF812A978B250065429E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,24 +320,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F2BFF7E2A978B250065429E /* ViewController.m in Sources */,
+				3F2BFFB32A97A52C0065429E /* PaperCanvasViewGenerator.m in Sources */,
+				3F2BFF942A978B8B0065429E /* PaletteViewController.m in Sources */,
+				3F2BFFCE2A99C79C0065429E /* MarkEnumerator.m in Sources */,
+				3F2BFFA62A97A41B0065429E /* CanvasView.m in Sources */,
+				3F2BFFCB2A99ACAA0065429E /* Scribble.m in Sources */,
+				3F2BFFD72A99CE320065429E /* MarkRender.m in Sources */,
+				3F2BFF9C2A978C140065429E /* Vertex.m in Sources */,
+				3F2BFFA92A97A42F0065429E /* PaperCanvasView.m in Sources */,
+				3F2BFFC82A99A6C50065429E /* ScribbleManager.m in Sources */,
+				3F2BFFBD2A9996F50065429E /* SetStrokeColorCommand.m in Sources */,
+				3F4C1AFA2A99EBAF006C62D4 /* ScribbleMemento.m in Sources */,
+				3F2BFFA22A978C240065429E /* Dot.m in Sources */,
+				3F2BFFC42A999D3E0065429E /* CommandSlider.m in Sources */,
+				3F2BFFD32A99C83B0065429E /* NSMutableArray+Stack.m in Sources */,
 				3F2BFF782A978B250065429E /* AppDelegate.m in Sources */,
+				3F2BFF912A978B790065429E /* CanvasViewController.m in Sources */,
 				3F2BFF892A978B260065429E /* main.m in Sources */,
+				3F2BFFB02A97A4CE0065429E /* CanvasViewGenerator.m in Sources */,
+				3F2BFFBA2A9996D30065429E /* Command.m in Sources */,
+				3F2BFFAC2A97A4440065429E /* ClothCanvasView.m in Sources */,
+				3F2BFFC02A9997FF0065429E /* CoordinatingController.m in Sources */,
+				3F2BFF972A978B980065429E /* ThumbnailViewController.m in Sources */,
+				3F2BFFB62A97A54F0065429E /* ClothCanvasViewGenerator.m in Sources */,
+				3F4C1B562A99F1E7006C62D4 /* NSFileManager+Path.m in Sources */,
 				3F2BFF7B2A978B250065429E /* SceneDelegate.m in Sources */,
+				3F2BFF9F2A978C1D0065429E /* Stroke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3F2BFF7F2A978B250065429E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F2BFF802A978B250065429E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3F2BFF842A978B260065429E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +485,7 @@
 				INFOPLIST_FILE = TouchPainter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +512,7 @@
 				INFOPLIST_FILE = TouchPainter/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
