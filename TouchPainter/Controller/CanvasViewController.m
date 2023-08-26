@@ -10,10 +10,14 @@
 #import "Stroke.h"
 #import "Vertex.h"
 #import "Dot.h"
+#import "CanvasToolView.h"
+#import "UIView+Frame.h"
 
-@interface CanvasViewController ()
+@interface CanvasViewController () <CanvasToolViewDelegate>
 
 @property (nonatomic) CanvasView *canvasView;
+@property (nonatomic) CanvasToolView *toolView;
+
 @property (nonatomic) CGPoint startPoint;
 @property (nonatomic) UIColor *strokeColor;
 @property (nonatomic) CGFloat strokeSize;
@@ -38,6 +42,11 @@
 
     CanvasViewGenerator *generator = [[CanvasViewGenerator alloc] init];
     [self loadCanvasViewWithGenerator:generator];
+
+    _toolView = [[CanvasToolView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
+    _toolView.bottom = self.view.bottom - 88;
+    _toolView.delegate = self;
+    [self.view addSubview:_toolView];
 
     Scribble *scribble = [[Scribble alloc] init];
     [self setScribble:scribble];
@@ -73,17 +82,7 @@
         id<Mark> newStroke = [[Stroke alloc] init];
         [newStroke setColor:_strokeColor];
         [newStroke setSize:_strokeSize];
-
-        // 取得用于绘图的NSInvocation，并为绘图命令设置新的参数
-        NSInvocation *drawInvocation = [self drawScribbleInvocation];
-        [drawInvocation setArgument:&newStroke atIndex:2];
-
-        // 取得用于撤销绘图的NSInvocation，并为撤销绘图命令设置新的参数
-        NSInvocation *undrawInvocation = [self undrawScribbleInvocation];
-        [undrawInvocation setArgument:&newStroke atIndex:2];
-
-        // 执行带有撤销命令的绘图命令
-        [self executeInvocation:drawInvocation withUndoInvocation:undrawInvocation];
+        [self addMarkWithUndo:newStroke];
     }
 
     // 把当前触摸作为顶点添加到临时线条
@@ -103,19 +102,14 @@
         Dot *singleDot = [[Dot alloc] initWithLocation:thisPoint];
         [singleDot setColor:_strokeColor];
         [singleDot setSize:_strokeSize];
-
-        // 取得用于绘图的NSInvocation，并为绘图命令设置新的参数
-        NSInvocation *drawInvocation = [self drawScribbleInvocation];
-        [drawInvocation setArgument:&singleDot atIndex:2];
-
-        // 取得用于撤销绘图的NSInvocation，并为撤销绘图命令设置新的参数
-        NSInvocation *undrawInvocation = [self undrawScribbleInvocation];
-        [undrawInvocation setArgument:&singleDot atIndex:2];
-
-        // 执行带有撤销命令的绘图命令
-        [self executeInvocation:drawInvocation withUndoInvocation:undrawInvocation];
+        [self addMarkWithUndo:singleDot];
     }
 
+    // 重置起点
+    _startPoint = CGPointZero;
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     // 重置起点
     _startPoint = CGPointZero;
 }
@@ -134,6 +128,30 @@
 }
 
 #pragma mark - 撤销 & 恢复
+
+- (void)addMarkWithUndo:(id<Mark>)mark {
+    // 取得用于绘图的NSInvocation，并为绘图命令设置新的参数
+    NSInvocation *drawInvocation = [self drawScribbleInvocation];
+    [drawInvocation setArgument:&mark atIndex:2];
+
+    // 取得用于撤销绘图的NSInvocation，并为撤销绘图命令设置新的参数
+    NSInvocation *undrawInvocation = [self undrawScribbleInvocation];
+    [undrawInvocation setArgument:&mark atIndex:2];
+
+    // 执行带有撤销命令的绘图命令
+    [self executeInvocation:drawInvocation withUndoInvocation:undrawInvocation];
+}
+
+- (void)clearScribbleWithUndo {
+    NSInvocation *deleteInvocation = [self deleteScribbleInvocation];
+    Scribble *scribble = [[Scribble alloc] init];
+    [deleteInvocation setArgument:&scribble atIndex:2];
+
+    NSInvocation *restoreInvocation = [self restoreScribbleInvocation];
+    [restoreInvocation setArgument:&_scribble atIndex:2];
+
+    [self executeInvocation:deleteInvocation withUndoInvocation:restoreInvocation];
+}
 
 - (NSInvocation *)drawScribbleInvocation {
     NSMethodSignature *executeMethodSignature = [_scribble methodSignatureForSelector:@selector(addMark:shouldAddToPreviousMark:)];
@@ -155,16 +173,59 @@
     return undrawInvocation;
 }
 
+- (NSInvocation *)deleteScribbleInvocation {
+    NSMethodSignature *executeMethodSignature = [self methodSignatureForSelector:@selector(setScribble:)];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:executeMethodSignature];
+    [invocation setTarget:self];
+    [invocation setSelector:@selector(setScribble:)];
+
+    return invocation;
+}
+
+- (NSInvocation *)restoreScribbleInvocation {
+    NSMethodSignature *unexecuteMethodSignature = [self methodSignatureForSelector:@selector(setScribble:)];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:unexecuteMethodSignature];
+    [invocation setTarget:self];
+    [invocation setSelector:@selector(setScribble:)];
+
+    return invocation;
+}
+
 - (void)executeInvocation:(NSInvocation *)invocation withUndoInvocation:(NSInvocation *)undoInvocation {
-    [[self.undoManager prepareWithInvocationTarget:self] unexecuteInvocation:undoInvocation withRndoInvocation:invocation];
+    [invocation retainArguments];
+
+    [[self.undoManager prepareWithInvocationTarget:self] unexecuteInvocation:undoInvocation withRedoInvocation:invocation];
 
     [invocation invoke];
 }
 
-- (void)unexecuteInvocation:(NSInvocation *)invocation withRndoInvocation:(NSInvocation *)redoInvocation {
+- (void)unexecuteInvocation:(NSInvocation *)invocation withRedoInvocation:(NSInvocation *)redoInvocation {
     [[self.undoManager prepareWithInvocationTarget:self] executeInvocation:redoInvocation withUndoInvocation:invocation];
 
     [invocation invoke];
+}
+
+#pragma mark - CanvasToolViewDelegate
+
+- (void)onDelete {
+    [self clearScribbleWithUndo];
+}
+
+- (void)onSave {
+}
+
+- (void)onOpen {
+}
+
+- (void)onPalette {
+}
+
+- (void)onUndo {
+    [self.undoManager undo];
+}
+
+- (void)onRedo {
+    [self.undoManager redo];
 }
 
 @end
