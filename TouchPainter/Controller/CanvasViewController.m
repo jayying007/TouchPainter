@@ -24,6 +24,15 @@
 
 @implementation CanvasViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _strokeColor = UIColor.blackColor;
+        _strokeSize = 1;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -123,6 +132,8 @@
         [_canvasView setNeedsDisplay];
     }
 }
+
+#pragma mark - 撤销 & 恢复
 
 - (NSInvocation *)drawScribbleInvocation {
     NSMethodSignature *executeMethodSignature = [_scribble methodSignatureForSelector:@selector(addMark:shouldAddToPreviousMark:)];
