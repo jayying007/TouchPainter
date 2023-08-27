@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2151362A9B46260094D2DB /* SetStrokeSizeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2151352A9B46260094D2DB /* SetStrokeSizeCommand.m */; };
 		3F2BFF782A978B250065429E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF772A978B250065429E /* AppDelegate.m */; };
 		3F2BFF7B2A978B250065429E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BFF7A2A978B250065429E /* SceneDelegate.m */; };
 		3F2BFF832A978B260065429E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BFF822A978B260065429E /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F2151342A9B46260094D2DB /* SetStrokeSizeCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetStrokeSizeCommand.h; sourceTree = "<group>"; };
+		3F2151352A9B46260094D2DB /* SetStrokeSizeCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetStrokeSizeCommand.m; sourceTree = "<group>"; };
 		3F2BFF732A978B250065429E /* TouchPainter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchPainter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2BFF762A978B250065429E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F2BFF772A978B250065429E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -114,6 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F2151372A9B47730094D2DB /* Palette */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFB82A9996D30065429E /* Command.h */,
+				3F2BFFB92A9996D30065429E /* Command.m */,
+				3F2BFFBB2A9996F50065429E /* SetStrokeColorCommand.h */,
+				3F2BFFBC2A9996F50065429E /* SetStrokeColorCommand.m */,
+				3F2151342A9B46260094D2DB /* SetStrokeSizeCommand.h */,
+				3F2151352A9B46260094D2DB /* SetStrokeSizeCommand.m */,
+			);
+			path = Palette;
+			sourceTree = "<group>";
+		};
 		3F2BFF6A2A978B250065429E = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +162,8 @@
 		3F2BFF982A978BBF0065429E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3F2151372A9B47730094D2DB /* Palette */,
 				3F2BFFB72A9996B70065429E /* Mark */,
-				3F2BFFB82A9996D30065429E /* Command.h */,
-				3F2BFFB92A9996D30065429E /* Command.m */,
-				3F2BFFBB2A9996F50065429E /* SetStrokeColorCommand.h */,
-				3F2BFFBC2A9996F50065429E /* SetStrokeColorCommand.m */,
 				3F2BFFC62A99A6C50065429E /* ScribbleManager.h */,
 				3F2BFFC72A99A6C50065429E /* ScribbleManager.m */,
 				3F2BFFC92A99ACAA0065429E /* Scribble.h */,
@@ -164,9 +177,8 @@
 		3F2BFFA32A97A40A0065429E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F4C1B5E2A9A4AFF006C62D4 /* Palette */,
 				3F2BFFC12A999D280065429E /* Canvas */,
-				3F2BFFC22A999D3E0065429E /* CommandSlider.h */,
-				3F2BFFC32A999D3E0065429E /* CommandSlider.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +273,15 @@
 			path = TouchPainter;
 			sourceTree = "<group>";
 		};
+		3F4C1B5E2A9A4AFF006C62D4 /* Palette */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BFFC22A999D3E0065429E /* CommandSlider.h */,
+				3F2BFFC32A999D3E0065429E /* CommandSlider.m */,
+			);
+			path = Palette;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,6 +367,7 @@
 				3F2BFFC42A999D3E0065429E /* CommandSlider.m in Sources */,
 				3F2BFFD32A99C83B0065429E /* NSMutableArray+Stack.m in Sources */,
 				3F2BFF782A978B250065429E /* AppDelegate.m in Sources */,
+				3F2151362A9B46260094D2DB /* SetStrokeSizeCommand.m in Sources */,
 				3F2BFF912A978B790065429E /* CanvasViewController.m in Sources */,
 				3F2BFF892A978B260065429E /* main.m in Sources */,
 				3F2BFFB02A97A4CE0065429E /* CanvasViewGenerator.m in Sources */,

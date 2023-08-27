@@ -9,36 +9,55 @@
 
 @interface CoordinatingController ()
 
-@property (nonatomic) UIViewController *activeController;
+@property (nonatomic) UIViewController *activeViewController;
 @property (nonatomic) CanvasViewController *canvasViewController;
 
 @end
 
 @implementation CoordinatingController
 
-- (void)requestViewChangeByObject:(id)object {
-    if ([object isKindOfClass:[UIBarButtonItem class]]) {
-        switch ([(UIBarButtonItem *)object tag]) {
-            case kButtonTagOpenPaletteView: {
-                PaletteViewController *controller = [[PaletteViewController alloc] init];
-                [_canvasViewController presentViewController:controller animated:YES completion:nil];
-                _activeController = controller;
-            } break;
++ (instancetype)sharedInstance {
+    static CoordinatingController *controller = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        controller = [[CoordinatingController alloc] init];
+    });
+    return controller;
+}
 
-            case kButtonTagOpenThumbnailView: {
-                ThumbnailViewController *controller = [[ThumbnailViewController alloc] init];
-                [_canvasViewController presentViewController:controller animated:YES completion:nil];
-                _activeController = controller;
-            } break;
+- (UIViewController *)activeViewController {
+    return _activeViewController;
+}
 
-            default: {
-                [_canvasViewController dismissViewControllerAnimated:YES completion:nil];
-                _activeController = _canvasViewController;
-            } break;
-        }
-    } else {
-        [_canvasViewController dismissViewControllerAnimated:YES completion:nil];
-        _activeController = _canvasViewController;
+- (CanvasViewController *)canvasViewController {
+    if (_canvasViewController == nil) {
+        _canvasViewController = [[CanvasViewController alloc] init];
+        _activeViewController = _canvasViewController;
+    }
+    return _canvasViewController;
+}
+
+- (void)requestViewChangeWithInfo:(NSDictionary *)info {
+    ButtonTag tag = (ButtonTag)[[info objectForKey:@"tag"] intValue];
+    switch (tag) {
+        case kButtonTagOpenPaletteView: {
+            PaletteViewController *controller = [[PaletteViewController alloc] initWithColor:_canvasViewController.strokeColor
+                                                                                        size:_canvasViewController.strokeSize];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+            [_canvasViewController presentViewController:navController animated:YES completion:nil];
+            _activeViewController = controller;
+        } break;
+
+        case kButtonTagOpenThumbnailView: {
+            ThumbnailViewController *controller = [[ThumbnailViewController alloc] init];
+            [_canvasViewController presentViewController:controller animated:YES completion:nil];
+            _activeViewController = controller;
+        } break;
+
+        default: {
+            [_canvasViewController dismissViewControllerAnimated:YES completion:nil];
+            _activeViewController = _canvasViewController;
+        } break;
     }
 }
 

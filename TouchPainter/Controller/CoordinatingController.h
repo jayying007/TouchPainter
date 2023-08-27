@@ -25,7 +25,7 @@ typedef enum {
 - (UIViewController *)activeViewController;
 - (CanvasViewController *)canvasViewController;
 
-- (void)requestViewChangeByObject:(id)object;
+- (void)requestViewChangeWithInfo:(NSDictionary *)info;
 
 @end
 

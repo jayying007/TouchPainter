@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadCanvasViewWithGenerator:(CanvasViewGenerator *)generator;
 
-- (void)setStrokeColor:(UIColor *)color;
+@property (nonatomic) UIColor *strokeColor;
+@property (nonatomic) CGFloat strokeSize;
 
 @end
 

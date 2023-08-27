@@ -12,6 +12,8 @@
 #import "Dot.h"
 #import "CanvasToolView.h"
 #import "UIView+Frame.h"
+#import "PaletteViewController.h"
+#import "CoordinatingController.h"
 
 @interface CanvasViewController () <CanvasToolViewDelegate>
 
@@ -19,8 +21,6 @@
 @property (nonatomic) CanvasToolView *toolView;
 
 @property (nonatomic) CGPoint startPoint;
-@property (nonatomic) UIColor *strokeColor;
-@property (nonatomic) CGFloat strokeSize;
 
 @property (nonatomic) Scribble *scribble;
 
@@ -44,7 +44,7 @@
     [self loadCanvasViewWithGenerator:generator];
 
     _toolView = [[CanvasToolView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
-    _toolView.bottom = self.view.bottom - 88;
+    _toolView.bottom = self.view.bottom - 64;
     _toolView.delegate = self;
     [self.view addSubview:_toolView];
 
@@ -218,6 +218,8 @@
 }
 
 - (void)onPalette {
+    NSDictionary *info = @{ @"tag" : @(kButtonTagOpenPaletteView) };
+    [[CoordinatingController sharedInstance] requestViewChangeWithInfo:info];
 }
 
 - (void)onUndo {

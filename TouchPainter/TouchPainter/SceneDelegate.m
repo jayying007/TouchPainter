@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "CanvasViewController.h"
+#import "CoordinatingController.h"
 
 @interface SceneDelegate ()
 
@@ -19,9 +19,7 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-
-    CanvasViewController *vc = [[CanvasViewController alloc] init];
-    self.window.rootViewController = vc;
+    self.window.rootViewController = [[CoordinatingController sharedInstance] canvasViewController];
     [self.window makeKeyAndVisible];
 }
 

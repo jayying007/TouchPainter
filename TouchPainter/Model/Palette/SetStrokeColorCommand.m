@@ -18,7 +18,7 @@
 
     [_delegate command:self didRequestColorComponentsForRed:&redValue green:&greenValue blue:&blueValue];
 
-    UIColor *color = [UIColor colorWithRed:redValue green:greenValue blue:blueValue alpha:1];
+    UIColor *color = [UIColor colorWithRed:redValue / 255 green:greenValue / 255 blue:blueValue / 255 alpha:1];
 
     CoordinatingController *coordinator = [CoordinatingController sharedInstance];
     CanvasViewController *controller = [coordinator canvasViewController];

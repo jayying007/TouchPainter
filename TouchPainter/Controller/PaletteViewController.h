@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PaletteViewController : UIViewController
 
+- (instancetype)initWithColor:(UIColor *)color size:(CGFloat)size;
+
 @end
 
 NS_ASSUME_NONNULL_END

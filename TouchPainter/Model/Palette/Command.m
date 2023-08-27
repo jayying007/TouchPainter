@@ -9,4 +9,7 @@
 
 @implementation Command
 
+- (void)execute {
+}
+
 @end
