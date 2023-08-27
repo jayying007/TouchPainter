@@ -7,6 +7,7 @@
 
 #import "ScribbleMemento.h"
 #import "Mark.h"
+#import "Stroke.h"
 
 @interface ScribbleMemento ()
 
@@ -23,14 +24,14 @@
 }
 
 + (ScribbleMemento *)mementoWithData:(NSData *)data {
-    id<Mark> restoredMark = (id<Mark>)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    Stroke *restoredMark = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     ScribbleMemento *memento = [[ScribbleMemento alloc] initWithMark:restoredMark];
 
     return memento;
 }
 
 - (NSData *)data {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_mark];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:_mark requiringSecureCoding:NO error:nil];
     return data;
 }
 

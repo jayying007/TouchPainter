@@ -24,6 +24,9 @@
     return self;
 }
 
+- (void)visitMark:(id<Mark>)mark {
+}
+
 - (void)visitDot:(Dot *)dot {
     CGFloat x = dot.location.x;
     CGFloat y = dot.location.y;

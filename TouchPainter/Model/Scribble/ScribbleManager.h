@@ -14,11 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ScribbleManager : NSObject
 
++ (instancetype)sharedInstance;
+
 - (void)saveScribble:(Scribble *)scribble thumbnail:(UIImage *)image;
-
-- (NSInteger)numberOfScribbles;
-
-- (Scribble *)scribbleAtIndex:(NSInteger)index;
+- (int)numberOfScribbles;
+- (Scribble *)scribbleAtIndex:(int)index;
+- (UIImage *)thumbnailAtIndex:(int)index;
 
 @end
 

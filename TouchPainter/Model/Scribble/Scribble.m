@@ -36,6 +36,11 @@
     return self;
 }
 
++ (Scribble *)scribbleWithMemento:(ScribbleMemento *)memento {
+    Scribble *scribble = [[Scribble alloc] initWithMemento:memento];
+    return scribble;
+}
+
 #pragma mark - Public
 
 - (void)addMark:(id<Mark>)mark shouldAddToPreviousMark:(BOOL)shouldAddToPreviousMark {
@@ -67,8 +72,8 @@
     [self didChangeValueForKey:@"mark"];
 }
 
-- (void)attachStateFromMemento:(ScribbleMemento *)memento {
-    [self addMark:[memento mark] shouldAddToPreviousMark:NO];
+- (ScribbleMemento *)scribbleMemento {
+    return [self scribbleMenentoWithCompleteSnapshot:YES];
 }
 
 - (ScribbleMemento *)scribbleMenentoWithCompleteSnapshot:(BOOL)hasCompleteSnapshot {
@@ -86,13 +91,8 @@
     return memento;
 }
 
-- (ScribbleMemento *)scribbleMemento {
-    return [self scribbleMenentoWithCompleteSnapshot:YES];
-}
-
-+ (Scribble *)scribbleWithMemento:(ScribbleMemento *)memento {
-    Scribble *scribble = [[Scribble alloc] initWithMemento:memento];
-    return scribble;
+- (void)attachStateFromMemento:(ScribbleMemento *)memento {
+    [self addMark:[memento mark] shouldAddToPreviousMark:NO];
 }
 
 @end

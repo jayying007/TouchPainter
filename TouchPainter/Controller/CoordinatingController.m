@@ -50,7 +50,8 @@
 
         case kButtonTagOpenThumbnailView: {
             ThumbnailViewController *controller = [[ThumbnailViewController alloc] init];
-            [_canvasViewController presentViewController:controller animated:YES completion:nil];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+            [_canvasViewController presentViewController:navController animated:YES completion:nil];
             _activeViewController = controller;
         } break;
 

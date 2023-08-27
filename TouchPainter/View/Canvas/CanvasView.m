@@ -24,4 +24,14 @@
     [_mark acceptMarkVisitor:markRender];
 }
 
+- (UIImage *)getImage {
+    UIGraphicsImageRenderer *imageRender = [[UIGraphicsImageRenderer alloc] initWithBounds:self.bounds];
+
+    UIImage *image = [imageRender imageWithActions:^(UIGraphicsImageRendererContext *_Nonnull rendererContext) {
+        [self.layer renderInContext:rendererContext.CGContext];
+    }];
+
+    return image;
+}
+
 @end

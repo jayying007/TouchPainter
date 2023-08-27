@@ -59,7 +59,7 @@
     [redoButton addTarget:self action:@selector(onRedo) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:redoButton];
 
-    self.height = itemSize;
+    self.height = itemSize * 2;
 }
 
 #pragma mark - UIEvent

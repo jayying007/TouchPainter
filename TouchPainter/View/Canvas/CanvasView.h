@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) id<Mark> mark;
 
+- (UIImage *)getImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

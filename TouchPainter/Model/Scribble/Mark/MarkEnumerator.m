@@ -43,7 +43,7 @@
 
     for (int i = (int)[mark count] - 1; i >= 0; i--) {
         id<Mark> childMark = [mark childMarkAtIndex:i];
-        [self traverseAndBuildStackWithMark:mark];
+        [self traverseAndBuildStackWithMark:childMark];
     }
 }
 

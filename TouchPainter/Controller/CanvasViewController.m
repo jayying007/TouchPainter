@@ -14,6 +14,7 @@
 #import "UIView+Frame.h"
 #import "PaletteViewController.h"
 #import "CoordinatingController.h"
+#import "ScribbleManager.h"
 
 @interface CanvasViewController () <CanvasToolViewDelegate>
 
@@ -44,7 +45,7 @@
     [self loadCanvasViewWithGenerator:generator];
 
     _toolView = [[CanvasToolView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
-    _toolView.bottom = self.view.bottom - 64;
+    _toolView.bottom = self.view.bottom;
     _toolView.delegate = self;
     [self.view addSubview:_toolView];
 
@@ -66,6 +67,11 @@
     CGRect frame = self.view.bounds;
     _canvasView = [generator canvasViewWithFrame:frame];
     [self.view addSubview:_canvasView];
+}
+
+- (void)loadCanvasViewWithScribble:(Scribble *)scribble {
+    [self setScribble:scribble];
+    [self.undoManager removeAllActions];
 }
 
 #pragma mark - UI Event
@@ -212,9 +218,22 @@
 }
 
 - (void)onSave {
+    [[ScribbleManager sharedInstance] saveScribble:_scribble thumbnail:[_canvasView getImage]];
+
+    // 创建UIAlertController
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:@"保存成功"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    // 创建UIAlertAction
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    // 在视图控制器中显示UIAlertController
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)onOpen {
+    NSDictionary *info = @{ @"tag" : @(kButtonTagOpenThumbnailView) };
+    [[CoordinatingController sharedInstance] requestViewChangeWithInfo:info];
 }
 
 - (void)onPalette {
