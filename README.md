@@ -9,6 +9,6 @@
 - 支持 保存涂鸦到本地
 
 ### 效果展示
-![图片1](./Img/1.PNG)
+![图片1](https://tx-img-1256061645.cos.ap-guangzhou.myqcloud.com/1.PNG)
 
-![图片2](./Img/2.PNG)
+![图片2](https://tx-img-1256061645.cos.ap-guangzhou.myqcloud.com/2.PNG)
