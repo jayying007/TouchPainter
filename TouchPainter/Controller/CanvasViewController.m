@@ -15,8 +15,10 @@
 #import "PaletteViewController.h"
 #import "CoordinatingController.h"
 #import "ScribbleManager.h"
+#import "ThumbnailViewController.h"
+#import "MMUIAlertController.h"
 
-@interface CanvasViewController () <CanvasToolViewDelegate>
+@interface CanvasViewController () <CanvasToolViewDelegate, ThumbnailViewControllerDelegate>
 
 @property (nonatomic) CanvasView *canvasView;
 @property (nonatomic) CanvasToolView *toolView;
@@ -67,11 +69,6 @@
     CGRect frame = self.view.bounds;
     _canvasView = [generator canvasViewWithFrame:frame];
     [self.view addSubview:_canvasView];
-}
-
-- (void)loadCanvasViewWithScribble:(Scribble *)scribble {
-    [self setScribble:scribble];
-    [self.undoManager removeAllActions];
 }
 
 #pragma mark - UI Event
@@ -220,23 +217,18 @@
 - (void)onSave {
     [[ScribbleManager sharedInstance] saveScribble:_scribble thumbnail:[_canvasView getImage]];
 
-    // 创建UIAlertController
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
-                                                                             message:@"保存成功"
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    // 创建UIAlertAction
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:okAction];
-    // 在视图控制器中显示UIAlertController
-    [self presentViewController:alertController animated:YES completion:nil];
+    [MMUIAlertController showAlertWithTitle:nil message:@"保存成功" fromViewController:self];
 }
 
 - (void)onOpen {
-    NSDictionary *info = @{ @"tag" : @(kButtonTagOpenThumbnailView) };
-    [[CoordinatingController sharedInstance] requestViewChangeWithInfo:info];
+    ThumbnailViewController *controller = [[ThumbnailViewController alloc] init];
+    controller.delegate = self;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)onPalette {
+    // 这种中间者来解耦ViewController，感觉挺鸡肋的。因为很难传递其他数据
     NSDictionary *info = @{ @"tag" : @(kButtonTagOpenPaletteView) };
     [[CoordinatingController sharedInstance] requestViewChangeWithInfo:info];
 }
@@ -247,6 +239,13 @@
 
 - (void)onRedo {
     [self.undoManager redo];
+}
+
+#pragma mark - ThumbnailViewControllerDelegate
+
+- (void)thumbnailViewController:(ThumbnailViewController *)controller didSelectScribble:(Scribble *)scribble {
+    [self setScribble:scribble];
+    [self.undoManager removeAllActions];
 }
 
 @end

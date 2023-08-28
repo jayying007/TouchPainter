@@ -12,16 +12,6 @@
 @synthesize color = _color;
 @synthesize size = _size;
 
-- (void)drawWithContext:(CGContextRef)context {
-    CGFloat x = self.location.x;
-    CGFloat y = self.location.y;
-    CGFloat frameSize = self.size;
-    CGRect frame = CGRectMake(x - frameSize / 2, y - frameSize / 2, frameSize, frameSize);
-
-    CGContextSetFillColorWithColor(context, [self.color CGColor]);
-    CGContextFillEllipseInRect(context, frame);
-}
-
 - (void)acceptMarkVisitor:(id<MarkVisitor>)visitor {
     [visitor visitDot:self];
 }

@@ -13,10 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CanvasViewController : UIViewController
 
+/// 加载画布
 - (void)loadCanvasViewWithGenerator:(CanvasViewGenerator *)generator;
-- (void)loadCanvasViewWithScribble:(Scribble *)scribble;
 
+/// 修改画笔颜色
 @property (nonatomic) UIColor *strokeColor;
+/// 修改画笔大小
 @property (nonatomic) CGFloat strokeSize;
 
 @end

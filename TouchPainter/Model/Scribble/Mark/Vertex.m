@@ -16,13 +16,6 @@
     return self;
 }
 
-- (void)drawWithContext:(CGContextRef)context {
-    CGFloat x = self.location.x;
-    CGFloat y = self.location.y;
-
-    CGContextAddLineToPoint(context, x, y);
-}
-
 #pragma mark - Mark
 
 - (void)setColor:(UIColor *)color {

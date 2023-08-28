@@ -26,19 +26,6 @@
     return self;
 }
 
-- (void)drawWithContext:(CGContextRef)context {
-    CGContextMoveToPoint(context, self.location.x, self.location.y);
-
-    for (id<Mark> mark in _children) {
-        [mark drawWithContext:context];
-    }
-
-    CGContextSetLineWidth(context, self.size);
-    CGContextSetLineCap(context, kCGLineCapRound);
-    CGContextSetStrokeColorWithColor(context, [self.color CGColor]);
-    CGContextStrokePath(context);
-}
-
 - (void)setLocation:(CGPoint)location {
 }
 

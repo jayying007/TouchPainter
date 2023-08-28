@@ -14,7 +14,6 @@
 
 @property (nonatomic) UICollectionView *collectionView;
 
-@property (nonatomic) NSMutableDictionary *scribbleDict;
 @property (nonatomic) NSMutableDictionary *thumbnailDict;
 
 @end
@@ -24,7 +23,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _scribbleDict = [[NSMutableDictionary alloc] init];
         _thumbnailDict = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -74,7 +72,6 @@
     imageView.frame = cell.contentView.bounds;
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     [cell.contentView addSubview:imageView];
-    //    [cell addConstraints:@[ [imageView.leftAnchor constraintEqualToAnchor:cell.contentView.leftAnchor], [imageView.rightAnchor constraintEqualToAnchor:cell.contentView.rightAnchor], [imageView.topAnchor constraintEqualToAnchor:cell.contentView.topAnchor], [imageView.bottomAnchor constraintEqualToAnchor:cell.contentView.bottomAnchor] ]];
 
     return cell;
 }
@@ -84,8 +81,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Scribble *scribble = [[ScribbleManager sharedInstance] scribbleAtIndex:(int)indexPath.item + 1];
 
-    CanvasViewController *controller = [[CoordinatingController sharedInstance] canvasViewController];
-    [controller loadCanvasViewWithScribble:scribble];
+    [_delegate thumbnailViewController:self didSelectScribble:scribble];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }

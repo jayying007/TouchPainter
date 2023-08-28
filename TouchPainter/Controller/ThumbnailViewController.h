@@ -9,7 +9,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class ThumbnailViewController;
+@class Scribble;
+
+@protocol ThumbnailViewControllerDelegate
+
+- (void)thumbnailViewController:(ThumbnailViewController *)controller didSelectScribble:(Scribble *)scribble;
+
+@end
+
 @interface ThumbnailViewController : UIViewController
+
+@property (nonatomic, weak) id<ThumbnailViewControllerDelegate> delegate;
 
 @end
 
